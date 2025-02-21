@@ -1,0 +1,21 @@
+<h2>Edit Branch</h2>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<form>
+    <div class="mb-3">
+        <label for="branchName" class="form-label">Branch Name</label>
+        <input type="text" class="form-control" id="branchName" [(ngModel)]="branch.branchName" name="branchName" required>
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="branch.address" name="address" required>
+    </div>
+    <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="branch.phoneNumber" name="phoneNumber" required>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="updateBranch()">Save</button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+</form>
