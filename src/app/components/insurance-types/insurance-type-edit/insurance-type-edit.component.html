@@ -1,0 +1,17 @@
+<h2>Edit Insurance Type</h2>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<form>
+    <div class="mb-3">
+        <label for="insuranceTypeName" class="form-label">Insurance Type Name</label>
+        <input type="text" class="form-control" id="insuranceTypeName" [(ngModel)]="insuranceType.insuranceTypeName" name="insuranceTypeName" required>
+    </div>
+    <div class="mb-3">
+        <label for="agentPercentage" class="form-label">Agents Percentage</label>
+        <input type="number" class="form-control" id="agentPercentage" [(ngModel)]="insuranceType.agentPercentage" name="agentPercentage" required min="0" max="100">
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="updateInsuranceType()">Save</button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+</form>
