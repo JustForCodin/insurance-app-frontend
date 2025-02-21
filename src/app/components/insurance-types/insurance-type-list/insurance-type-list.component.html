@@ -1,0 +1,23 @@
+<h2>All Insurance Types</h2>
+
+<button class="btn btn-primary mb-3" (click)="createInsuranceType()">Add Insurance Type</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Insurance Type Name</th>
+            <th>Agent Percentage</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let insuranceType of insuranceTypes">
+            <td>{{ insuranceType.insuranceTypeName }}</td>
+            <td>{{ insuranceType.agentPercentage }}%</td>
+            <td>
+                <button class="btn btn-sm btn-warning" (click)="editInsuranceType(insuranceType._id)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteInsuranceType(insuranceType._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
