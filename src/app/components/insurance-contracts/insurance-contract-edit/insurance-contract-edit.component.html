@@ -1,0 +1,46 @@
+<h2>Edit Insurance Contract</h2>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<form>
+    <div class="mb-3">
+        <label for="contractNumber" class="form-label">Contract Number</label>
+        <input type="text" class="form-control" id="contractNumber" [(ngModel)]="insuranceContract.contractNumber" name="contractNumber" required>
+    </div>
+    <div class="mb-3">
+        <label for="contractDate" class="form-label">Contract Date</label>
+        <input type="date" class="form-control" id="contractDate" [(ngModel)]="insuranceContract.contractDate" name="contractDate" required>
+    </div>
+    <div class="mb-3">
+        <label for="insuranceAmount" class="form-label">Insurance Amount</label>
+        <input type="number" class="form-control" id="insuranceAmount" [(ngModel)]="insuranceContract.insuranceAmount" name="insuranceAmount" required min="0">
+    </div>
+    <div class="mb-3">
+        <label for="tariffRate" class="form-label">Tariff Rate</label>
+        <input type="number" class="form-control" id="tariffRate" [(ngModel)]="insuranceContract.tariffRate" name="tariffRate" required min="0" step="0.0001">
+    </div>
+    <div class="mb-3">
+        <label for="branch" class="form-label">Branch</label>
+        <select class="form-select" id="branch" [(ngModel)]="insuranceContract.branch" name="branch" required>
+            <option value="" disabled selected>Please select Branch</option>
+            <option *ngFor="let branch of branches" [value]="branch._id">{{ branch.branchName }}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="insuranceType" class="form-label">Insurance Type</label>
+        <select class="form-select" id="insuranceType" [(ngModel)]="insuranceContract.insuranceType" name="insuranceType" required>
+            <option value="" disabled selected>Please select Insurance Type</option>
+            <option *ngFor="let type of insuranceTypes" [value]="type._id">{{ type.insuranceTypeName }}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="agent" class="form-label">Insurance Agent</label>
+        <select class="form-select" id="agent" [(ngModel)]="insuranceContract.agent" name="agent" required>
+            <option value="" disabled selected>Please select Insurance Agent</option>
+            <option *ngFor="let agent of insuranceAgents" [value]="agent._id">{{ agent.lastName }} {{ agent.firstName }}</option>
+        </select>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="updateInsuranceContract()">Save</button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Canel</button>
+</form>
