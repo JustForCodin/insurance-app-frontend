@@ -1,0 +1,28 @@
+<h2>All Insurance Agents</h2>
+
+<button class="btn btn-primary mb-3" (click)="createInsuranceAgent()">Add Insurance Agent</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Given Name</th>
+            <th>Phone Number</th>
+            <th>Branch</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let agent of insuranceAgents">
+            <td>{{ agent.lastName }}</td>
+            <td>{{ agent.firstName }}</td>
+            <td>{{ agent.middleName }}</td>
+            <td>{{ agent.phoneNumber }}</td>
+            <td>{{ agent.branch?.branchName || agent.branch }}</td> <td>
+                <button class="btn btn-sm btn-warning" (click)="editInsuranceAgent(agent._id)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteInsuranceAgent(agent._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
