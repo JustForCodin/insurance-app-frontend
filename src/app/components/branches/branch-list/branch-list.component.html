@@ -1,0 +1,25 @@
+<h2>All Branches</h2>
+
+<button class="btn btn-primary mb-3" (click)="createBranch()">Add Branch</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Branch Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let branch of branches">
+            <td>{{ branch.branchName }}</td>
+            <td>{{ branch.address }}</td>
+            <td>{{ branch.phoneNumber }}</td>
+            <td>
+                <button class="btn btn-sm btn-warning" (click)="editBranch(branch._id)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteBranch(branch._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
