@@ -1,0 +1,8 @@
+<div *ngIf="authService.isAuthenticated()">
+    <h1>This is protected page</h1>
+    <p>Congratulations! You are authenticated.</p>
+    <button (click)="logout()">Log out</button>
+</div>
+<div *ngIf="!authService.isAuthenticated()">
+    <p>You are not authenticated <a routerLink="/login">Log in</a></p>
+</div>
